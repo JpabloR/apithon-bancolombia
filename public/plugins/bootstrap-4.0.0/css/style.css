@@ -1,5 +1,6 @@
 body {
     overflow: hidden;
+    background-color: #cccccc !important;
   }
   
   .container {
@@ -8,18 +9,18 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    width: 100%;
     animation-delay: 1s;
     background-color: #cccccc;
-    
   }
   
   .item-1 {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     background: #f583a1;
     border-radius: 50%;
     background-color: #00418b;
-    margin: 7px;
+    margin: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,8 +39,8 @@ body {
   }
   .item-1:before {
     content: '';
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #00418b;
     opacity: 0.7;
@@ -50,12 +51,12 @@ body {
   }
   
   .item-2 {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     background: #f583a1;
     border-radius: 50%;
     background-color: #fee037;
-    margin: 7px;
+    margin: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,8 +75,8 @@ body {
   }
   .item-2:before {
     content: '';
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #fee037;
     opacity: 0.7;
@@ -86,8 +87,8 @@ body {
   }
   
   .item-3 {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     background: #f583a1;
     border-radius: 50%;
     background-color: #df001e;
@@ -110,8 +111,8 @@ body {
   }
   .item-3:before {
     content: '';
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #df001e;
     opacity: 0.7;
@@ -122,8 +123,8 @@ body {
   }
   
   .item-4 {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     background: #f583a1;
     border-radius: 50%;
     background-color: #eead68;
@@ -163,7 +164,7 @@ body {
     background: #f583a1;
     border-radius: 50%;
     background-color: #ee8c68;
-    margin: 7px;
+    margin: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
