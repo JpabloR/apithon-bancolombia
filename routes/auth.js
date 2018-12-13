@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+let userController = require('../controllers/user-controller')
 
 router.get('/code', (req, res) => {
     let code = req.query.code;
     console.log(code);
+<<<<<<< HEAD
     
     res.render('loading');
 
@@ -31,6 +33,9 @@ router.get('/code', (req, res) => {
 
     console.log(process.env.REDIRECT_URI);
 
+=======
+    res.render('sv');
+>>>>>>> 273d09f475432cdba092131e9f498b2f16f85d8d
     //res =  sendResponse(res, 200, 'ok');
 });
 
