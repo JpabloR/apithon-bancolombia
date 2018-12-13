@@ -2,13 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const auth = require('./routes/auth');
-<<<<<<< HEAD
 const request = require("request");
 require('dotenv').config()
-=======
 var mongoose = require('mongoose');
 const appConfig = require('./config/app-config')();
->>>>>>> 273d09f475432cdba092131e9f498b2f16f85d8d
 
 //map the public content
 app.use(express.static('public'));
