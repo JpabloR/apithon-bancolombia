@@ -1,28 +1,6 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const auth = require('./routes/auth');
 var mongoose = require('mongoose');
-const appConfig = require('./config/app-config')();
-
-//map the public content
-app.use(express.static('public'));
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-
-app.use(express.json());
-app.use('/auth', auth);
-
-const port = process.env.PORT || 4600;
-app.listen(port, (req, res)=>{
-    console.log(`RUNNING on port ${port}`);
-});
-
-
-/* DATABASE CONNECTION *//*
+const appConfig = require('../config/app-config')();
+/* DATABASE CONNECTION */
 var mongoURI = appConfig.DB_CONNECTION;
 var connection;
 if(mongoURI){
@@ -40,4 +18,4 @@ connection.on('error', function(err){
 });
 connection.on('disconnected', function(){
     console.log('warn','db was disconnected');
-});*/
+});
