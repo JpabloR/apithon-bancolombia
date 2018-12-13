@@ -4,8 +4,8 @@ const router = express.Router();
 router.get('/code', (req, res) => {
     let code = req.query.code;
     console.log(code);
-    res.render('sv');
-    res =  sendResponse(res, 200, 'ok');
+    res.render('loading');
+    //res =  sendResponse(res, 200, 'ok');
 });
 
 module.exports = router;
