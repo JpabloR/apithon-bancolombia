@@ -1,11 +1,13 @@
 {
-  "scripts" : {
-    "start" : "node app.js"
+  "scripts": {
+    "start": "node app.js"
   },
   "name": "Apithon",
   "version": "1.0.0",
   "dependencies": {
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "ejs": "^2.6.1"
+    "request": "^2.88.0"
   }
 }

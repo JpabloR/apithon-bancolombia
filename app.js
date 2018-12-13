@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const auth = require('./routes/auth');
+const request = require("request");
+require('dotenv').config()
 
 //map the public content
 app.use(express.static('public'));
