@@ -1,0 +1,53 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Generate QR</title>
+
+    <!--Bootstrap-->
+    <link href="/plugins/bootstrap-4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="row">
+            <h1 class="text-info">Create and Download your QR</h1>
+        </div>
+        <div class="col-12">
+            <form action="/api/generate" method="POST">
+                <div class="form-group">
+                    <label for="custom_name">Nombre Personalizado</label>
+                    <input name="custom_name" class="form-control" id="custom_name" required="" type="text" placeholder="Nombre Personalizado">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="account_number">Número de Cuenta</label>
+                        <input name="account_number" class="form-control" id="account_number" required="" type="text" placeholder="Numero de Cuenta">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="account_type">Tipo de Cuenta</label>
+                        <select name="account_type" class="form-control" id="account_type">
+                            <option value="SAVINGS" selected="">Ahorros</option>
+                            <option value="CHECKING">Corriente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripcion</label>
+                    <input name="description" class="form-control" id="description" type="text" placeholder="Descripcion">
+                </div>
+                <div class="form-group">
+                    <label for="amount">Valor</label>
+                    <input name="amount" class="form-control" id="amount" type="number" min="0" placeholder="Valor">
+                </div>
+                <button class="btn btn-primary" type="submit">Generar QR</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="/plugins/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="/plugins/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+
+
+</body></html>

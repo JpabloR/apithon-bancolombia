@@ -1,0 +1,6 @@
+node_modules
+bower_components
+.idea
+app/_config/development.properties.json
+mgh.log
+package-lock.json
