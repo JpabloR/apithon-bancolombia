@@ -1,4 +1,5 @@
 const express = require('express');
+const async = require('async');
 const router = express.Router();
 const cardServ = require('../services/cards');
 const userController = require('../controllers/user-controller');
@@ -10,15 +11,21 @@ router.get('/', (req, res) => {
             let bodyJson = JSON.parse(body);
             let data = bodyJson.data;
             let cardResponses = [];
-            data.forEach(card => {
-                cardResponses.push(card.cards);
-               /* let cardId = card.card_number == "************1212" ? "1212121212121212" : "4343434343434356"
+            async.each(data, (card, cb) => {
+                let cardJson = {};
+                cardJson.card = card.cards;
+                let cardId = card.header.id;
                 cardServ.getCardTransactions(cardId, user.token, function (err, body) {
                     //res = sendResponse(res, 200, body)
-
-                });*/
+                    let bdJson = JSON.parse(body);
+                    cardJson.transaction = bdJson.data;
+                    cardResponses.push(cardJson);
+                    cb();
+                });
+            }, function(err){
+                res = sendResponse(res, 200, {cards: cardResponses})
             })
-            res = sendResponse(res, 200, {cards: cardResponses})
+
         });
 
     })
