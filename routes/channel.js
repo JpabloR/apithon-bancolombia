@@ -1,14 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const cardServ = require('../services/cards');
+const channelServ = require('../services/channel.js');
 const userController = require('../controllers/user-controller');
 
-router.get('/', (req, res) => {
+router.get('/all', (req, res) => {
     let userId = req.query.userId;
+    let response = {};
     userController.getUser(userId, function(err, user){
-        cardServ.getCards(user.token, function (err, body) {
-            res = sendResponse(res, 200, body)
-        });
+        let token = user.token;
+        channelServ.getAgents(token, function (err, agents) {
+            response.agents = agents;
+            channelServ.getAtms(token, function (err, atms) {
+                response.atms = atms;
+                channelServ.getBranches(token, function (err, branches) {
+                    response.braches = branches;
+                    res = sendResponse(res, 200,response);
+                })
+            })
+        })
 
     })
 });
