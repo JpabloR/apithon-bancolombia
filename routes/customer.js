@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
     userController.getUser(userId, function(err, user){
 
         customerServ.getCustomerBasicInformation(user.token, function (err, body) {
-            res = sendResponse(res, 200, body)
+            let bodyJson = JSON.parse(body);
+            res = sendResponse(res, 200, bodyJson.data[0]);
         });
     })
 });
@@ -18,7 +19,8 @@ router.get('/customer-details', (req, res) => {
     userController.getUser(userId, function(err, user){
 
         customerServ.getCustomerDetails(user.token, function (err, body) {
-            res = sendResponse(res, 200, body)
+            let bodyJson = JSON.parse(body);
+            res = sendResponse(res, 200, bodyJson.data[0])
         });
     })
 });
@@ -28,7 +30,8 @@ router.get('/customer-financial-data', (req, res) => {
     userController.getUser(userId, function(err, user){
 
         customerServ.getCustomerFinancialData(user.token, function (err, body) {
-            res = sendResponse(res, 200, body)
+            let bodyJson = JSON.parse(body);
+            res = sendResponse(res, 200, bodyJson.data[0].financialData);
         });
     })
 });
@@ -38,7 +41,8 @@ router.get('/customer-ubication', (req, res) => {
     userController.getUser(userId, function(err, user){
 
         customerServ.getCustomerUbication(user.token, function (err, body) {
-            res = sendResponse(res, 200, body)
+            let bodyJson = JSON.parse(body);
+            res = sendResponse(res, 200, bodyJson.data[0].ubicationData)
         });
     })
 });

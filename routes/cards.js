@@ -7,7 +7,18 @@ router.get('/', (req, res) => {
     let userId = req.query.userId;
     userController.getUser(userId, function(err, user){
         cardServ.getCards(user.token, function (err, body) {
-            res = sendResponse(res, 200, body)
+            let bodyJson = JSON.parse(body);
+            let data = bodyJson.data;
+            let cardResponses = [];
+            data.forEach(card => {
+                cardResponses.push(card.cards);
+               /* let cardId = card.card_number == "************1212" ? "1212121212121212" : "4343434343434356"
+                cardServ.getCardTransactions(cardId, user.token, function (err, body) {
+                    //res = sendResponse(res, 200, body)
+
+                });*/
+            })
+            res = sendResponse(res, 200, {cards: cardResponses})
         });
 
     })
