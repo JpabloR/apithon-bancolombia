@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const banserv = require('../services/bancolombia');
+const userController = require('../controllers/user-controller');
 
 router.get('/code', (req, res) => {
     let code = req.query.code;
+    let id = req.query.state;
     console.log(code);
-    
+    userController.updateUserToken(id, code);
     res.render('loading');
-
-    banserv.getUserToken(code);
-
     console.log(process.env.REDIRECT_URI);
 
     //res =  sendResponse(res, 200, 'ok');

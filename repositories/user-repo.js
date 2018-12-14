@@ -10,11 +10,6 @@ exports.getUserById  = function (id, callback) {
 
 
 exports.setUserToken = function (id, token,  callback) {
-    this.getUserById(id, function(err, user){
-        if (!err){
-            user.token = token;
-            user.save();
-        }
-    })
+    user.findOneAndUpdate({userId: id},{$set:{token: token}}, callback)
 };
 
