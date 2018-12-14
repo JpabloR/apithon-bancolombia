@@ -7,7 +7,7 @@ router.get('/code', (req, res) => {
     console.log(code);
     
     res.render('loading');
-
+    
     banserv.getUserToken(code);
 
     console.log(process.env.REDIRECT_URI);
