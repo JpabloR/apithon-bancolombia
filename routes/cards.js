@@ -13,6 +13,28 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/transactions', (req, res) => {
+    let userId = req.query.userId;
+    let cardId = req.query.cardId;
+    userController.getUser(userId, function(err, user){
+        cardServ.getCardTransactions(cardId, user.token, function (err, body) {
+            res = sendResponse(res, 200, body)
+        });
+
+    })
+});
+
+router.get('/detail', (req, res) => {
+    let userId = req.query.userId;
+    let cardId = req.query.cardId;
+    userController.getUser(userId, function(err, user){
+        cardServ.getCardDetail(cardId, user.token, function (err, body) {
+            res = sendResponse(res, 200, body)
+        });
+
+    })
+});
+
 module.exports = router;
 
 const sendResponse = (res, statusCode, body, headers = '') => {
