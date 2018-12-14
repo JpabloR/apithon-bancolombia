@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/user-controller');
-
+const banserv = require('../services/security');
 
 router.get('/code', (req, res) => {
     let code = req.query.code;
