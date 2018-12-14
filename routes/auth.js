@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
+<<<<<<< HEAD
 const userController = require('../controllers/user-controller');
+=======
+const banserv = require('../services/security');
+>>>>>>> 7c0ff4deaa4f7dadbddd8aa33a8f0278fc94ea91
 
 router.get('/code', (req, res) => {
     let code = req.query.code;
@@ -8,9 +12,6 @@ router.get('/code', (req, res) => {
     console.log(code);
     userController.updateUserToken(id, code);
     res.render('loading');
-    console.log(process.env.REDIRECT_URI);
-
-    //res =  sendResponse(res, 200, 'ok');
 });
 
 module.exports = router;
