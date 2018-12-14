@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const banserv = require('../services/bancolombia');
+const banserv = require('../services/security');
 
 router.get('/code', (req, res) => {
     let code = req.query.code;
