@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const auth = require('./routes/auth');
+const cards = require('./routes/cards');
+
 const request = require("request");
 require('dotenv').config()
 var mongoose = require('mongoose');
@@ -17,6 +19,7 @@ app.set('view engine', 'html');
 
 app.use(express.json());
 app.use('/auth', auth);
+app.use('/cards', cards);
 
 const port = process.env.PORT || 4600;
 app.listen(port, (req, res)=>{

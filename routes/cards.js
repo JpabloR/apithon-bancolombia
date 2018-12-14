@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const cardServ = require('../services/cards');
 const userController = require('../controllers/user-controller');
 
+router.get('/', (req, res) => {
+    let userId = req.query.userId;
+    userController.getUser(userId, function(err, user){
+        cardServ.getCards(user.token, function (err, body) {
+            res = sendResponse(res, 200, body)
+        });
 
-router.get('/code', (req, res) => {
-    let code = req.query.code;
-    let id = req.query.state;
-    console.log(code);
-    userController.updateUserToken(id, code);
-    res.render('loading');
+    })
 });
 
 module.exports = router;

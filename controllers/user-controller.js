@@ -1,5 +1,5 @@
 let userRepo = require('../repositories/user-repo');
-const banserv = require('../services/bancolombia');
+const banserv = require('../services/security');
 
 
 exports.getUser = function(id, callback) {
