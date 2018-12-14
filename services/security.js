@@ -1,6 +1,6 @@
 // SOLICITUD  DE TOKEN
 var request = require("request");
-require('dotenv').config()
+require('dotenv').config();
 
 exports.getUserToken = function(varcode) {
 
