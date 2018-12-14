@@ -9,11 +9,14 @@ router.get('/all', (req, res) => {
     userController.getUser(userId, function(err, user){
         let token = user.token;
         channelServ.getAgents(token, function (err, agents) {
-            response.agents = agents;
+            let agenstJson = JSON.parse(agents);
+            response.agents = agenstJson.data;
             channelServ.getAtms(token, function (err, atms) {
-                response.atms = atms;
+                let atmsJson = JSON.parse(atms);
+                response.atms = atmsJson.data;
                 channelServ.getBranches(token, function (err, branches) {
-                    response.braches = branches;
+                    let branchesJson = JSON.parse(branches);
+                    response.braches = branchesJson.data;
                     res = sendResponse(res, 200,response);
                 })
             })

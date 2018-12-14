@@ -19,8 +19,13 @@ router.get('/', (req, res) => {
                     //res = sendResponse(res, 200, body)
                     let bdJson = JSON.parse(body);
                     cardJson.transaction = bdJson.data;
-                    cardResponses.push(cardJson);
-                    cb();
+                    cardServ.getCardDetail(cardId, user.token, function (err, detail) {
+                        let detailJson = JSON.parse(detail);
+                        cardJson.detail = detailJson.data[0];
+                        cardResponses.push(cardJson);
+                        cb();
+                    })
+
                 });
             }, function(err){
                 res = sendResponse(res, 200, {cards: cardResponses})
