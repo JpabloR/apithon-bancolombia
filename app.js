@@ -3,6 +3,10 @@ const app = express();
 const path = require('path');
 const auth = require('./routes/auth');
 const cards = require('./routes/cards');
+const customer = require('./routes/customer');
+const aggregation = require('./routes/aggregation');
+const channel = require('./routes/channel');
+const payments = require('./routes/payments');
 
 const request = require("request");
 require('dotenv').config()
@@ -20,6 +24,10 @@ app.set('view engine', 'html');
 app.use(express.json());
 app.use('/auth', auth);
 app.use('/cards', cards);
+app.use('/customer', customer);
+app.use('/aggregation', aggregation);
+app.use('/channel', channel);
+app.use('/payments', payments);
 
 const port = process.env.PORT || 4600;
 app.listen(port, (req, res)=>{
